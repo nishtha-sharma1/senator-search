@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const terser = require('gulp-terser');
+const ghPages = require('gulp-gh-pages');
  
 function copy() {
     return gulp.src([
@@ -79,3 +80,8 @@ gulp.task('buildAndServe',
      gulp.parallel(serve,watch),
      )
 );
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
