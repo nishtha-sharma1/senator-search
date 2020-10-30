@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8">
+  <title>Nishtha Sharma</title>
+  <link rel="stylesheet" href="/sass/styles.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src="/js/scripts.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="page-title">Basic Senator Information Search</h1>
+    <span class="small-text">powered by: <a class="link" href="https://projects.propublica.org/api-docs/congress-api/" target="_blank">ProPublica Congress API</a></span>
+  </header>
+   <main class="main">
+    <section class="container">
+      <div class="description">
+        <p class="description__title">Senator Name</p>
+        <p class="description__text">Type the first or last name of any senator to get basic information on them i.e. state, next relection, bills passed and bills introduced</p>
+      </div>
+      <input type="text" 
+       placeholder="Type a senator name"
+       class="search__input js-input-name"
+       name="name"
+       required>
+      <button class="button button__search js-search-senator">Search</button>
+      <div class="results js-results-senator js-hide">
+        <p class="no-results js-no-results js-hide">We do not have any matches for that name</p>
+        <div class="results__text-wrap js-result-wrapper js-hide">
+          <p class="results__text results__label">Name:</p>
+          <p class="results__text results__name"></p>
+        </div>
+        <div class="results__text-wrap js-result-wrapper js-hide">
+          <p class="results__text results__label">State:</p>
+          <p class="results__text results__state"></p>
+        </div>
+        <div class="results__text-wrap js-result-wrapper js-hide">
+          <p class="results__text results__label">Next Election:</p>
+          <p class="results__text results__nextElection"></p>
+        </div>
+        <div class="results__text-wrap js-result-wrapper js-hide js-bills-wrapper">
+          <button class="button button__toggle js-toggle">Bills Passed <i class="fas fa-angle-down"></i></button>
+          <ul class="bills__list js-bills-passed js-hide">
+          </ul>
+        </div>
+        <div class="results__text-wrap js-result-wrapper js-hide js-bills-wrapper">
+          <button class="button button__toggle js-toggle">Bills Introduced <i class="fas fa-angle-down"></i></button>
+          <ul class="bills__list js-bills-introduced js-hide">
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="description">
+        <p class="description__title">Re-Election Senators</p>
+        <p class="description__text">Choose a year from the dropdown list and see which senators are up for relection during that time</p>
+      </div>
+      <select class="search__input search__input--year js-input-year">
+        <option value="0" selected="selected">Please Select a Year</option>
+        <option value="1" >2021</option>
+        <option value="2">2022</option>
+        <option value="3">2023</option>
+        <option value="4">2024</option>
+      </select>
+      <!-- TODO:  -->
+      <!-- 1. Refactor to remove years that are not election years -->
+      <!-- 2. Make filter list similar to bullet dropdown for Re-Election; -->
+      <button class="button button__search js-reelection-year">Search</button>
+      <div class="results results__reelection js-results-reelection js-hide">
+        <p class="no-results js-no-results js-hide">This is not an election year for senators</p>
+        <div class="results__reelection--grid js-hide">
+          <p class="results__text results__label">Name</p>
+          <p class="results__text results__label">State</p>
+          <p class="results__text results__label">Party</p>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="description">
+        <p class="description__title">Congressional Statement Search</p>
+        <p class="description__text">See congressional statements from senator related to a certain topic using the information&nbsp;below. First type in the name of the senator you'd like to see congressional statements for, then in the next line type in the subject you'd like to see statements on.</p>
+      </div>
+      <input type="text" 
+       placeholder="Senator Name"
+       class="search__input search__input--cg-statement-name"
+       name="name"
+       required>
+       <input type="text"
+        placeholder="Type in a search"
+        class="search__input search__input--cg-statement-term"
+        name="search"
+        required>
+      <button class="button button__search">Search</button>
+    </section>
+   </main>
+</body>

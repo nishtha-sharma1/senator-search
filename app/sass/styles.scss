@@ -1,0 +1,300 @@
+
+* {
+  box-sizing: border-box;
+}
+
+$primary-font: 'Hind', sans-serif;
+$black: #000;
+
+@mixin primary-text-bold($font-size) {
+  font-family: $primary-font;
+  color: $black;
+  font-weight: 600;
+  font-size: $font-size;
+}
+
+@mixin primary-text-regular($font-size) {
+  font-family: $primary-font;
+  color: $black;
+  font-weight: 400;
+  font-size: $font-size;
+}
+
+@mixin toggle-button {
+  border: 1px solid #d3d3d3;
+  font-family: $primary-font;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+}
+
+@mixin grid-columns( $start, $end) {
+  grid-column-start: $start;
+  grid-column-end: $end;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.page-title {
+  @include primary-text-bold(30px);
+  text-align: center;
+  display: block;
+  margin: 30px 0 0;
+}
+
+.small-text {
+  font-family: $primary-font;
+  font-size: 12px;
+  display: block;
+  text-align: center;
+
+  .link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 15px auto 15px;
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: 40px auto 40px;
+  }
+}
+
+.button__search {
+  border: 1px solid blue;
+  border-radius: 25px;
+  color: white;
+  font-family: 'Hind', sans-serif;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 150px;
+  background: blue;
+  text-align: center;
+  display: block;
+
+  @media only screen and (min-width: 768px) {
+    display: inline-block;
+  }
+}
+
+.container {
+  @include grid-columns(1,4);
+  padding: 15px ;
+  margin: 20px 0 0;
+  text-align: center;
+  border-top: 2px solid lightgrey;
+  @media only screen and (min-width: 768px) {
+    @include grid-columns(2,3);
+    width: 100%;
+    max-width: 768px;
+    margin: 20px auto 0;
+  }
+
+  @media only screen and (min-width: 940px) {
+    max-width: 940px;
+  }
+}
+
+.description {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+.description__title {
+  @include primary-text-bold(20px);
+  margin: 15px 0;
+}
+
+.description__text {
+  @include primary-text-regular(15px);
+  display: block;
+  font-size: 16px;
+  margin: 0 auto 15px;
+  max-width: 500px;
+  @media only screen and (min-width: 768px) {
+     vertical-align: middle;
+     display: inline-block;
+  }
+}
+
+.search__input {
+  border-radius: 25px;
+  padding: 10px;
+  border: 2px solid lightskyblue;
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+  @media only screen and (min-width: 768px) {
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+ }
+}
+
+.search__input--year {
+  background: white;
+}
+
+.search__input--cg-statement-name {
+  margin-bottom: 10px;
+  @media only screen and (min-width: 768px) {
+    margin-right: 160px;
+    margin-bottom: 0;
+ }
+}
+
+.results {
+  @include grid-columns(2,3);
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-align: left;
+
+  @media only screen and (min-width: 768px) {
+    padding: 20px 30px;
+  }
+}
+
+.results__reelection {
+  -webkit-box-shadow: 0px 0px 31px -6px rgba(211,211,211,1);
+  -moz-box-shadow: 0px 0px 31px -6px rgba(211,211,211,1);
+  box-shadow: 0px 0px 31px -6px rgba(211,211,211,1);
+}
+
+.results__text {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.results__state,
+.results__name,
+.results__party,
+.results__nextElection {
+  text-align: center;
+  @include primary-text-bold(15px);
+}
+
+.results__label {
+  @include primary-text-regular(15px);
+}
+
+.results__text-wrap {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.results__reelection--grid {
+  grid-template-columns: 33% 33% 33%;
+
+  .results__label:first-child {
+    @include grid-columns(1,2);
+  }
+
+  .results__label:nth-child(2) {
+    @include grid-columns(2,3);
+  }
+
+  .results__label:nth-child(3) {
+    @include grid-columns(3,4);
+  }
+}
+
+.no-results {
+  text-align: center;
+  @include primary-text-bold(20px);
+  margin: 0;
+  padding: 20px 30px;
+  @include grid-columns(1,4);
+  border: 1px solid black;
+}
+
+.democrat {
+  color: blue;
+}
+
+.republican {
+  color: red;
+}
+
+.independant {
+  color: green;
+}
+
+.js-hide {
+  display: none;
+}
+
+.js-show {
+  display: block;
+}
+
+.js-show-grid {
+  display: grid;
+}
+
+.button__toggle {
+  @include toggle-button;
+  margin: 0 0 15px 0;
+  display: block;
+
+  .fas.fa-angle-down {
+    vertical-align: middle;
+  }
+}
+
+.bills__list {
+  padding: 0;
+  margin-inline-start: 0;
+  list-style-type: none;
+}
+
+.bills__list--item {
+  padding: 15px 5px;
+}
+
+
+.bill__subject {
+  @include primary-text-bold(15px);
+  border-bottom: 1px solid #d3d3d3;
+  margin: 5px 0;
+  padding: 5px 0;
+}
+
+.bill__title {
+  @include primary-text-regular(15px);
+}
+
+.bill__find-out-more {
+  font-family: $primary-font;
+  font-size: 12px;
+  font-weight: 400;
+  color: blue;
+  text-decoration: none;
+}
+
+.bill__find-out-more:hover {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.no-bills {
+  display: block;
+  padding: 10px;
+  @include primary-text-bold(15px);
+}
