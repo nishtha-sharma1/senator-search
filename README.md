@@ -1,5 +1,7 @@
 # Senator-Search
 
+GitHub Pages Link: [Senator Search](https://nishtha-sharma1.github.io/senator-search/)
+
 ## Why, What, Who
 I started to practice working on some skills I wwanted to learn more about
 I wanted to practice working with an api as well as practice some basic vanilla javascript and css skills. 
